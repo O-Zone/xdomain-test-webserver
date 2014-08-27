@@ -1,0 +1,23 @@
+{
+  "name": "2http-servers",
+  "version": "0.0.3",
+  "description": "2 http-servers pointing to the same webroot. Works as local cross domain testing environment",
+  "author": "Hasse Feldthaus <hafe@kb.dk>",
+  "keywords": [
+    "http-server",
+    "xDomain"
+  ],
+  "dependencies": {
+    "express": "~4.8",
+    "mime": "~1.2",
+    "optimist": "~0.6"
+  },
+  "devDependencies": {
+    "gulp-util": "~3.0",
+    "gulp": "~3.8",
+    "gulp-uglify": "~0.3",
+    "gulp-cssmin": "~0.1",
+    "gulp-replace": "~0.4",
+    "gulp-rename": "~1.2"
+  }
+}
