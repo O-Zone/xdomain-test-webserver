@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Test page for testing xdomain issues</title>
+    <meta charset="utf-8">
+    <style type="text/css">
+        div{
+            padding:10px;
+            margin:0;
+            box-sizing:border-box;
+        }
+        .expl{
+            margin-left:10px;
+            margin-bottom:10px;
+            padding: 10px;
+            background-color:tan;
+            width:450px;
+        }
+        .result{
+            width:200px;
+            height:200px;
+            margin-right:50px;
+            border:1px solid black;
+            overflow:auto;
+            float:left;
+        }
+        .result button{
+            cursor:pointer;
+        }
+    </style>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script type="text/javascript">
+        function fetchData(port, elem) {
+            $.ajax({
+                url: 'http://localhost:' + port + '/loremHipsum.txt',
+                success: function (data) {
+                    elem.html(data);
+                },
+                error: function (data) {
+                    elem.html(data.statusText);
+                }
+            })
+        }
+    </script>
+</head>
+<body>
+    <div class="expl">
+        <p>To test xdomain issues, load this page through port 8001 or port 8002, and test ajax loading from those two ports.</p>
+        <p>Please click the two buttons below</p>
+    </div>
+    <div>
+        <div class="result">
+            <button onclick="fetchData(8001, $(this).closest('div'));">ajax load this content from localhost:8001</button>
+        </div>
+        <div class="result">
+            <button onclick="fetchData(8002, $(this).closest('div'));">ajax load this content from localhost:8002</button>
+        </div>
+    </div>
+</body>
+</html>
